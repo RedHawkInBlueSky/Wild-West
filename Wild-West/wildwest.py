@@ -10,7 +10,6 @@
 # If you'd like to add your own parameters, simply just add them to pages.log
 # you don't need to modify code in order for it to work, I told you it was simple!
 #
-# If you have any noteworthy wordlist updates, please share them!
 # Modified last at: September 6, 2021.
 
 import os
