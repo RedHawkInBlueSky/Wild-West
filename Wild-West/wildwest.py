@@ -1,4 +1,3 @@
-# !/usr/bin/env python3
 # Wild-West | Simple Hidden Directory Fuzzing.
 #
 # DO NOT USE FOR ILLEGAL PURPOSES!
@@ -84,7 +83,7 @@ def WildWest():
 
         sys.exit()
     else:
-        pass
+        print(Prefixes.prefixOK + "Website is up! Starting scan.")
 
 WildWest()
 
@@ -138,8 +137,6 @@ def WildWestMain():
                     print(Prefixes.prefixOK + "Yeehaw! Interesting webpage found at " + url)
                     wildwest_successful_links += 1
               
-
-
     print("\n" + Prefixes.prefixOK + "Wild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
 
     print(Prefixes.prefixWorking + "Tasks finished. Press enter to close.")
