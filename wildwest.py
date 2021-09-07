@@ -1,7 +1,17 @@
-# usr/env/python3
-# Andrew Labby
+# !/usr/bin/env python3
+# Wild-West | Simple Hidden Directory Fuzzing.
 #
-# To be added later.
+# DO NOT USE FOR ILLEGAL PURPOSES!
+#
+# Written and maintained by Andrew Labby.
+# ---------------------------------------
+#
+# A very simple tool used for fuzzing hidden directories faster.
+# If you'd like to add your own parameters, simply just add them to pages.log
+# you don't need to modify code in order for it to work, I told you it was simple!
+#
+# If you have any noteworthy wordlist updates, please share them!
+# Modified last at: September 6, 2021.
 
 import os
 import sys
@@ -42,13 +52,7 @@ def WildWest_Startup():
 
 WildWest_Startup
 
-# Clear the screen, launch the program.
-
 os.system("cls")
-
-# Set all colortypes into class style, make prefixes for text output later.
-# Pass.
-
 
 os.system("")
 
@@ -64,13 +68,10 @@ class style():
         UNDERLINE = '\033[4m'
         RESET = '\033[0m'
 
-
 prefixOK = style.GREEN + '[+]' + style.RESET + " "
 prefixWorking = style.YELLOW + '[-]' + style.RESET + " "
 prefixFailed = style.RED + '[!]' + style.RESET + " "
 prefixDATA = style.GREEN + '[DATA]' + style.RESET + " "
-
-# Main Banner for Wild West
 
 print('''
            (    (    (                      (            
@@ -117,7 +118,6 @@ def WildWest():
 
 WildWest()
 
-
 def BackSlashCheck():
 
     backslashCheck = hostWebsite
@@ -131,7 +131,6 @@ def BackSlashCheck():
         os.system("python wildwest.py")
     else:
         pass
-
 
 BackSlashCheck()
 
@@ -161,13 +160,11 @@ def WildWestMain():
                     print(prefixOK + "Yeehaw! Interesting webpage found at " + url)
                     wildwest_successful_links += 1
 
-
     print(prefixOK + "\nWild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
 
     print(prefixOK + "Tasks finished. Press enter to close.")
     
     waitOnKeyboard1 = input("")
     sys.exit()
-
 
 WildWestMain()
