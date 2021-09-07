@@ -13,6 +13,12 @@ https://paypal.me/andrewlabby?locale.x=en_US
   2. Type CD [Directory where Wild West is located]
   3. Then type "python wildwest.py"
   4. Once loaded, simply enter a URL (Without the backslash at the end!) and it will be scanned.
+
+# COMMON ERRORS
+
+There is no module named [BLANK] - to fix this, first install PIP which is used for importing modules. Then go to a command prompt and type "pip install [module-name]".
+
+URLLIB couldn't open request URL, this a relatively common crash. Try loading Wild-West in Windows. Compability with Linux is not perfect, but will be patched in a future series of updates.
  
 # LEGAL
 
