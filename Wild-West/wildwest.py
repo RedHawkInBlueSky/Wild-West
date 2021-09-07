@@ -23,38 +23,7 @@ import urllib
 print("Please review all legal information at: https://github.com/RedHawkInBlueSky/Wild-West. By using this program you agree to all legal conditions.")
 time.sleep(2.5)
 
-def WildWest_Startup():
-
-    print("[-] Verifying operating system is set to Windows...")
-    time.sleep(0.2)
-
-    # Verify that the current operating system is set to Windows
-
-    operatingSystem = platform.platform()
-
-    fullstring = operatingSystem
-    substring = "Windows"
-
-    if substring in fullstring:
-        pass
-    else:
-        print("[!] Your operating system isn't Windows, for Columbia Forward to work at best, use Windows (preferably 7+).")
-
-    # Clear the screen and launch.
-
-    print("[-] Getting username...")
-    time.sleep(0.2)
-
-    # Get username of user for prefixes
-
-    activeUsername = getpass.getuser()
-
-    # If code reaches this point, all vectors have passed.
-    # Launch the main program.
-
-WildWest_Startup
-
-os.system("cls")
+os.system("cls" or "clear")
 
 os.system("")
 
@@ -138,8 +107,8 @@ BackSlashCheck()
 
 def WildWestMain():
 
-    # Take the contents of adminpages and parse line-by-line (LBL)
-    # and search for pages individually
+    # Take the contents of pages.log and parse line-by-line (LBL)
+    # and search for pages individually.
 
     filename = "pages.log"
 
