@@ -118,29 +118,25 @@ def WildWestMain():
             while (admin_lines := AdminLBL.readline().rstrip()):
 
                 url = hostWebsite + admin_lines
-
+                
                 try:
                     page = requests.get(url, headers={'User-Agent': 'internet explorer or something'})
-                
                     WildWest_admin1 = page.status_code == 200 and 301
-
                 except requests.exceptions.ConnectionError:
                     print(Prefixes.prefixFailed + "Connection refused by hosting. Retrying...")
                     time.sleep(10)
-                    WildWestMain()
+                    pass
                 except requests.exceptions.TooManyRedirects:
                     print(Prefixes.prefixFailed + "Exceeded redirects limit. Waiting 1 minute and rebooting.")
                     time.sleep(60)
-                    WildWestMain()
-    
+                    pass
                 if WildWest_admin1 == False:
                     pass
                 else:
                     print(Prefixes.prefixOK + "Yeehaw! Interesting webpage found at " + url)
                     wildwest_successful_links += 1
-              
 
-
+                        
     print("\n" + Prefixes.prefixOK + "Wild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
 
     print(Prefixes.prefixWorking + "Tasks finished. Press enter to close.")
