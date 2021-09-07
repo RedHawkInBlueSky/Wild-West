@@ -39,25 +39,27 @@ class style():
         UNDERLINE = '\033[4m'
         RESET = '\033[0m'
 
-prefixOK = style.GREEN + '[+]' + style.RESET + " "
-prefixWorking = style.YELLOW + '[-]' + style.RESET + " "
-prefixFailed = style.RED + '[!]' + style.RESET + " "
-prefixDATA = style.GREEN + '[DATA]' + style.RESET + " "
+class Prefixes():
+    prefixOK = style.GREEN + '[+]' + style.RESET + " "
+    prefixWorking = style.YELLOW + '[-]' + style.RESET + " "
+    prefixFailed = style.RED + '[!]' + style.RESET + " "
+    prefixDATA = style.GREEN + '[DATA]' + style.RESET + " "
 
 print('''
-           (    (    (                      (            
- (  (      )\ ) )\ ) )\ )    (  (           )\ )  *   )  
- )\))(   '(()/((()/((()/(    )\))(   ' (   (()/(` )  /(  
-((_)()\ )  /(_))/(_))/(_))  ((_)()\ )  )\   /(_))( )(_)) 
-_(())\_)()(_)) (_)) (_))_   _(())\_)()((_) (_)) (_(_())  
-\ \((_)/ /|_ _|| |   |   \  \ \((_)/ /| __|/ __||_   _|  
- \ \/\/ /  | | | |__ | |) |  \ \/\/ / | _| \__ \  | |    
-  \_/\_/  |___||____||___/    \_/\_/  |___||___/  |_|                                                     
-\n
+ █     █░ ██▓ ██▓    ▓█████▄     █     █░▓█████   ██████ ▄▄▄█████▓
+▓█░ █ ░█░▓██▒▓██▒    ▒██▀ ██▌   ▓█░ █ ░█░▓█   ▀ ▒██    ▒ ▓  ██▒ ▓▒
+▒█░ █ ░█ ▒██▒▒██░    ░██   █▌   ▒█░ █ ░█ ▒███   ░ ▓██▄   ▒ ▓██░ ▒░
+░█░ █ ░█ ░██░▒██░    ░▓█▄   ▌   ░█░ █ ░█ ▒▓█  ▄   ▒   ██▒░ ▓██▓ ░ 
+░░██▒██▓ ░██░░██████▒░▒████▓    ░░██▒██▓ ░▒████▒▒██████▒▒  ▒██▒ ░ 
+░ ▓░▒ ▒  ░▓  ░ ▒░▓  ░ ▒▒▓  ▒    ░ ▓░▒ ▒  ░░ ▒░ ░▒ ▒▓▒ ▒ ░  ▒ ░░   
+  ▒ ░ ░   ▒ ░░ ░ ▒  ░ ░ ▒  ▒      ▒ ░ ░   ░ ░  ░░ ░▒  ░ ░    ░    
+  ░   ░   ▒ ░  ░ ░    ░ ░  ░      ░   ░     ░   ░  ░  ░    ░      
+    ░     ░      ░  ░   ░           ░       ░  ░      ░  
+                                                        
 ''')
 
 
-print(prefixWorking + "Wild-West v. 1.0.1 is a Beta, client may be unstable and prone to crashing. Client is more stable on Windows x64 versions.\n")
+print(Prefixes.prefixWorking + "Wild-West v. 1.0.2 is a Beta, client may be unstable and prone to crashing. Client is more stable on Windows x64 versions.\n")
 
 # Get input for main website.
 
@@ -65,10 +67,10 @@ hostWebsite = input("Enter Website to Search (i.e. http://www.google.com - Don't
 
 def WildWest():
 
-    print(prefixOK + "Wild-West Started.")
+    print(Prefixes.prefixOK + "Wild-West Started.")
     time.sleep(2.0)
 
-    print(prefixOK + "Website set to: " + hostWebsite + ". Attempting to verify that website is up...")
+    print(Prefixes.prefixOK + "Website set to: " + hostWebsite + ". Attempting to verify that website is up...")
 
     # Verify that website is up and running. If it returns a 200 OK code, then it is. But anything else,
     # it's most likely offline.
@@ -80,7 +82,7 @@ def WildWest():
     website_is_up = status_code == 200 and 301
 
     if website_is_up == False:
-        print(prefixFailed + "Website doesn't appear to be up. Did you enter it like this? HTTP://www.example.com ? - There should be no '/' at the end for Wild-West to work properly.")
+        print(Prefixes.prefixFailed + "Website doesn't appear to be up. Did you enter it like this? HTTP://www.example.com ? - There should be no '/' at the end for Wild-West to work properly.")
         time.sleep(5)
 
         sys.exit()
@@ -96,7 +98,7 @@ def BackSlashCheck():
     result = backslashCheck.endswith('/')
 
     if result == True:
-        print(prefixFailed + "Your website appears to end with '/', for Wild-West to work best, don't add '/' at the end of your URLS.")
+        print(Prefixes.prefixFailed + "Your website appears to end with '/', for Wild-West to work best, don't add '/' at the end of your URLS.")
         time.sleep(5)
 
         os.system("python wildwest.py")
@@ -114,26 +116,36 @@ def WildWestMain():
 
     wildwest_successful_links = 0
 
-    print(prefixWorking + "Working...")
+    print(Prefixes.prefixWorking + "Working...")
 
     with open(filename) as AdminLBL:
             while (admin_lines := AdminLBL.readline().rstrip()):
 
                 url = hostWebsite + admin_lines
                 
-                page = requests.get(url)
                 
-                WildWest_admin1 = page.status_code == 200 and 301
+                try:
+                    page = requests.get(url)
+                
+                    WildWest_admin1 = page.status_code == 200 and 301
 
+                except requests.exceptions.ConnectionError:
+                    print(Prefixes.prefixFailed + "Connection refused by hosting. Retrying...")
+                    time.sleep(10)
+                    
+                    WildWestMain()
+    
                 if WildWest_admin1 == False:
                     pass
                 else:
-                    print(prefixOK + "Yeehaw! Interesting webpage found at " + url)
+                    print(Prefixes.prefixOK + "Yeehaw! Interesting webpage found at " + url)
                     wildwest_successful_links += 1
+              
 
-    print(prefixOK + "\nWild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
 
-    print(prefixOK + "Tasks finished. Press enter to close.")
+    print(Prefixes.prefixOK + "\nWild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
+
+    print(Prefixes.prefixOK + "Tasks finished. Press enter to close.")
     
     waitOnKeyboard1 = input("")
     sys.exit()
