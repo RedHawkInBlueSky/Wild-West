@@ -119,9 +119,8 @@ def WildWestMain():
 
                 url = hostWebsite + admin_lines
                 
-                
                 try:
-                    page = requests.get(url)
+                    page = requests.get(url, headers={'User-Agent': 'internet explorer or something'})
                 
                     WildWest_admin1 = page.status_code == 200 and 301
 
