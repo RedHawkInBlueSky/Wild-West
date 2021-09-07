@@ -9,8 +9,6 @@
 # A very simple tool used for fuzzing hidden directories faster.
 # If you'd like to add your own parameters, simply just add them to pages.log
 # you don't need to modify code in order for it to work, I told you it was simple!
-#
-# Modified last at: September 6, 2021.
 
 import os
 import sys
