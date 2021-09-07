@@ -57,7 +57,7 @@ _(())\_)()(_)) (_)) (_))_   _(())\_)()((_) (_)) (_(_())
 ''')
 
 
-print(prefixWorking + "Wild-West v. 1.0.0 is a Beta, client may be unstable and prone to crashing.\n")
+print(prefixWorking + "Wild-West v. 1.0.1 is a Beta, client may be unstable and prone to crashing. Client is more stable on Windows x64 versions.\n")
 
 # Get input for main website.
 
