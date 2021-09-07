@@ -21,6 +21,9 @@ import platform
 import getpass
 import urllib
 
+print("Please review all legal information at: https://github.com/RedHawkInBlueSky/Wild-West. By using this program you agree to all legal conditions.")
+time.sleep(2.5)
+
 def WildWest_Startup():
 
     print("[-] Verifying operating system is set to Windows...")
