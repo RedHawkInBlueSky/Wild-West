@@ -144,7 +144,7 @@ def WildWestMain():
 
     print("\n" + Prefixes.prefixOK + "Wild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
 
-    print(Prefixes.prefixOK + "Tasks finished. Press enter to close.")
+    print(Prefixes.prefixWorking + "Tasks finished. Press enter to close.")
     
     waitOnKeyboard1 = input("")
     sys.exit()
