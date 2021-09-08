@@ -133,7 +133,7 @@ def WildWestMain():
                 if WildWest_admin1 == False:
                     pass
                 else:
-                    print(Prefixes.prefixOK + "Yeehaw! Interesting webpage found at " + url)
+                    print(Prefixes.prefixOK + "Possibly interesting webpage found at " + url)
                     wildwest_successful_links += 1
 
                         
