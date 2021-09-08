@@ -2,7 +2,7 @@
 
 # WILD WEST
 
-Wild West is a program developed by Andrew Labby and 32x30 that aims to make fuzzing suspicious webpages significantly easier. Rather than relying on one wordlist that is never updated, Wild West utilizes a constantly updated wordlist that aims to find suspicious/interesting pages. Beyond simply working well, it works fast. Some programs attempt to load entire webpages while Wild West just attempts to find the response code, this significantly cuts down response time, thus making fuzzing incredibly fast. Rather than spending hours upon hours looking for webpages, Wild West needs just 5-10 minutes. Give it a try!
+Wild West is a program developed by Andrew Labby and 32x30 that aims to make fuzzing suspicious webpages significantly easier. Rather than relying on one wordlist that is never updated, Wild West utilizes a constantly updated wordlist that aims to find suspicious/interesting pages. Beyond simply working well, it works fast. Some programs attempt to load entire webpages while Wild West just attempts to find the response code, this significantly cuts down response time, thus making fuzzing incredibly fast. Give it a try!
 
 # SUPPORT MY RESEARCH
 
