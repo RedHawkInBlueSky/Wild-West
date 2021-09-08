@@ -12,7 +12,7 @@ https://paypal.me/andrewlabby?locale.x=en_US
 
 Feel free to contact me anytime about any inquires and questions: andrewlabby@protonmail.com
 
-Spam be disregarded.
+Spam will be disregarded.
 
 # TO USE:
   1. Open command prompt.
