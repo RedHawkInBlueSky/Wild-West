@@ -8,6 +8,12 @@ Wild West is a program developed by Andrew Labby and 32x30 that aims to make fuz
 
 https://paypal.me/andrewlabby?locale.x=en_US
 
+# QUESTIONS?
+
+Feel free to contact me anytime about any inquires and questions: andrewlabby@protonmail.com
+
+Spam be disregarded.
+
 # TO USE:
   1. Open command prompt.
   2. Type CD [Directory where Wild West is located]
