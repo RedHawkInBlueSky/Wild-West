@@ -10,7 +10,7 @@ https://paypal.me/andrewlabby?locale.x=en_US
 
 # QUESTIONS?
 
-Feel free to contact me anytime about any inquires and questions: andrewlabby@protonmail.com
+Feel free to contact me anytime about any questions: andrewlabby@protonmail.com
 
 Spam will be disregarded.
 
