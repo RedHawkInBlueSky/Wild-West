@@ -3,19 +3,39 @@
 # DO NOT USE FOR ILLEGAL PURPOSES!
 #
 # Written and maintained by Andrew Labby.
-# ---------------------------------------
 #
 # A very simple tool used for fuzzing hidden directories faster.
 # If you'd like to add your own parameters, simply just add them to pages.log
 # you don't need to modify code in order for it to work, I told you it was simple!
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED
+# INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+# PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT 
+# HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION 
+# OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+# SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import os
-import sys
-import time
-import requests
-import platform
-import getpass
-import urllib
+try:
+    import os
+    import sys
+    import time
+    import requests
+    import platform
+    import getpass
+    import urllib
+except Exception:
+    print('''
+    [!] One or more modules isn't on your system. To fix this, try to install these modules:
+    
+    -REQUESTS
+    -GETPASS
+    -URLLIB
+    -PLATFORM
+    
+    TO INSTALL, OPEN COMMAND PROMPT OR TERMINAL AND TYPE 'PIP INSTALL [MODULE-NAME]' ''')
+
+    time.sleep(10)
+    sys.exit()
 
 print("Please review all legal information at: https://github.com/RedHawkInBlueSky/Wild-West. By using this program you agree to all legal conditions.")
 time.sleep(2.5)
