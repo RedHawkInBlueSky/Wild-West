@@ -140,7 +140,7 @@ def WildWestMain():
                 url = hostWebsite + admin_lines
                 
                 try:
-                    page = requests.get(url, headers={'User-Agent': 'internet explorer or something'})
+                    page = requests.get(url, headers={'User-Agent': 'WILD-WEST'})
                     WildWest_admin1 = page.status_code == 200 and 301
                 except requests.exceptions.ConnectionError:
                     print(Prefixes.prefixFailed + "Connection refused by host. Retrying...")
