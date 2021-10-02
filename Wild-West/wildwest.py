@@ -26,35 +26,39 @@ try:
 except Exception:
     print('''
     [!] One or more modules isn't on your system. To fix this, try to install these modules:
-    
     -REQUESTS
     -GETPASS
     -URLLIB
     -PLATFORM
-    
     TO INSTALL, OPEN COMMAND PROMPT OR TERMINAL AND TYPE 'PIP INSTALL [MODULE-NAME]' ''')
-
-    time.sleep(10)
     sys.exit()
 
 print("Please review all legal information at: https://github.com/RedHawkInBlueSky/Wild-West. By using this program you agree to all legal conditions.")
 time.sleep(2.5)
 
-os.system("cls" or "clear")
+# After the legal disclaimer is printed, clear the screen
+# and launch the program
 
-os.system("")
+def WILDWEST_OS_CHECK():
+    HOST_OS = platform.platform()
+
+    if "Windows" in HOST_OS:
+        os.system("cls")
+    else:
+        os.system("clear")
+WILDWEST_OS_CHECK()
 
 class style():
-        BLACK = '\033[30m'
-        RED = '\033[31m'
-        GREEN = '\033[32m'
-        YELLOW = '\033[33m'
-        BLUE = '\033[34m'
-        MAGENTA = '\033[35m'
-        CYAN = '\033[36m'
-        WHITE = '\033[37m'
-        UNDERLINE = '\033[4m'
-        RESET = '\033[0m'
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    UNDERLINE = '\033[4m'
+    RESET = '\033[0m'
 
 class Prefixes():
     prefixOK = style.GREEN + '[+]' + style.RESET + " "
@@ -77,23 +81,24 @@ print('''
 
 print(Prefixes.prefixWorking + "Wild-West v. 1.0.2 is a Beta, client may be unstable and prone to crashing. Client is more stable on Windows x64 versions.\n")
 
-# Get input for main website.
+#Get input for main website, do not do this inside a class,
+# because otherwise the URI data can't be removed.
 
-hostWebsite = input("Enter Website to Search (i.e. http://www.google.com - Don't use a backslash at the end!):")
+WILDWEST_HOST = input("Enter Website to Search (i.e. http://www.google.com - Don't use a backslash at the end!):")
 
 def WildWest():
 
     print(Prefixes.prefixOK + "Wild-West Started.")
     time.sleep(2.0)
 
-    print(Prefixes.prefixOK + "Website set to: " + hostWebsite + ". Attempting to verify that website is up...")
+    print(Prefixes.prefixOK + "Website set to: " + WILDWEST_HOST + ". Attempting to verify that website is up...")
 
     # Verify that website is up and running. If it returns a 200 OK code, then it is. But anything else,
     # it's most likely offline.
 
-    verifyConnection = hostWebsite
+    verifyConnection = WILDWEST_HOST
 
-    request_response = requests.head(hostWebsite)
+    request_response = requests.head(WILDWEST_HOST)
     status_code = request_response.status_code
     website_is_up = status_code == 200 and 301
 
@@ -108,19 +113,14 @@ def WildWest():
 WildWest()
 
 def BackSlashCheck():
+    WILDWEST_BACKSLASH1 = WILDWEST_HOST
+    WILDWEST_BACKCHECK1 = WILDWEST_BACKSLASH1.endswith('/')
 
-    backslashCheck = hostWebsite
-
-    result = backslashCheck.endswith('/')
-
-    if result == True:
+    if WILDWEST_BACKSLASH1 == True:
         print(Prefixes.prefixFailed + "Your website appears to end with '/', for Wild-West to work best, don't add '/' at the end of your URLS.")
-        time.sleep(5)
-
-        os.system("python wildwest.py")
+        sys.exit()
     else:
         pass
-
 BackSlashCheck()
 
 def WildWestMain():
@@ -128,16 +128,15 @@ def WildWestMain():
     # Take the contents of pages.log and parse line-by-line (LBL)
     # and search for pages individually.
 
-    filename = "pages.log"
-
-    wildwest_successful_links = 0
+    WILDWEST_HOST_FILE = "pages.log"
+    WILDWEST_SUCCESS_COUNT = 0
 
     print(Prefixes.prefixWorking + "Working...")
 
-    with open(filename) as AdminLBL:
-            while (admin_lines := AdminLBL.readline().rstrip()):
+    with open(WILDWEST_HOST_FILE) as UNDERTOW:
+            while (admin_lines := UNDERTOW.readline().rstrip()):
 
-                url = hostWebsite + admin_lines
+                url = WILDWEST_HOST + admin_lines
                 
                 try:
                     page = requests.get(url, headers={'User-Agent': 'WILD-WEST'})
@@ -154,14 +153,15 @@ def WildWestMain():
                     pass
                 else:
                     print(Prefixes.prefixOK + "Possibly interesting webpage found at " + url)
-                    wildwest_successful_links += 1
+                    WILDWEST_SUCCESS_COUNT += 1
 
-                        
-    print("\n" + Prefixes.prefixOK + "Wild-West Found: " + str(wildwest_successful_links) + " interesting domain names.")
+    # Finish parsing, escape the verification sequence
+    # then close the program.
 
+    print("\n" + Prefixes.prefixOK + "Wild-West Found: " + str(WILDWEST_SUCCESS_COUNT) + " interesting domain names.")
     print(Prefixes.prefixWorking + "Tasks finished. Press enter to close.")
     
-    waitOnKeyboard1 = input("")
+    WILDWEST_KEYINPUT = input("")
     sys.exit()
 
 WildWestMain()
