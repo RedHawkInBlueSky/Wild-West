@@ -36,8 +36,7 @@ except Exception:
 print("Please review all legal information at: https://github.com/RedHawkInBlueSky/Wild-West. By using this program you agree to all legal conditions.")
 time.sleep(2.5)
 
-# After the legal disclaimer is printed, clear the screen
-# and launch the program
+# After the legal disclaimer is printed, clear the screen and launch the program
 
 def WILDWEST_OS_CHECK():
     HOST_OS = platform.platform()
@@ -81,7 +80,7 @@ print('''
 
 print(Prefixes.prefixWorking + "Wild-West v. 1.0.2 is a Beta, client may be unstable and prone to crashing. Client is more stable on Windows x64 versions.\n")
 
-#Get input for main website, do not do this inside a class,
+# Get input for main website, do not do this inside a class,
 # because otherwise the URI data can't be removed.
 
 WILDWEST_HOST = input("Enter Website to Search (i.e. http://www.google.com - Don't use a backslash at the end!):")
