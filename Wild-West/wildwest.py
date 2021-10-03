@@ -40,7 +40,6 @@ time.sleep(2.5)
 
 def WILDWEST_OS_CHECK():
     HOST_OS = platform.platform()
-
     if "Windows" in HOST_OS:
         os.system("cls")
     else:
